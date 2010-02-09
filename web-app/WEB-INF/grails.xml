@@ -1,0 +1,15 @@
+<grails>
+  <resources>
+    <resource>org.grails.appengine.AppEngineReloadController</resource>
+    <resource>BootStrap</resource>
+    <resource>UrlMappings</resource>
+    <resource>DataSource</resource>
+    <resource>BuildConfig</resource>
+    <resource>resources</resource>
+    <resource>Config</resource>
+  </resources>
+  <plugins>
+    <plugin>GormJpaGrailsPlugin</plugin>
+    <plugin>AppEngineGrailsPlugin</plugin>
+  </plugins>
+</grails>

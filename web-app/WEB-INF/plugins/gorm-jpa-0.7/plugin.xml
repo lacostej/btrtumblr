@@ -1,0 +1,349 @@
+<plugin name='gorm-jpa' version='0.7' grailsVersion='1.1 &gt; *'>
+  <author>Graeme Rocher</author>
+  <title>GORM-JPA Plugin</title>
+  <description>\
+A plugin that emulates the behavior of the GORM-Hibernate plugin against a standard JPA 1.0 backend
+</description>
+  <documentation>http://grails.org/plugin/gorm-jpa</documentation>
+  <resources>
+    <resource>BuildConfig</resource>
+    <resource>DataSource</resource>
+    <resource>UrlMappings</resource>
+    <resource>spring.resources</resource>
+    <resource>org.acme.Address</resource>
+    <resource>org.acme.Person</resource>
+    <resource>org.acme.Role</resource>
+  </resources>
+  <dependencies>
+    <resolvers>
+      <resolver type='grailsPlugins' name='grailsPlugins' />
+      <resolver type='flatDir' name='localJars' dirs='test/lib' />
+    </resolvers>
+    <dependency group='org.hibernate' name='hibernate-ehcache' version='3.3.1.GA' conf='runtime' transitive='true'>
+      <excludes group='*' name='ehcache' />
+    </dependency>
+    <dependency group='dom4j' name='dom4j' version='1.6.1' conf='runtime' transitive='true'>
+      <excludes group='*' name='xml-apis' />
+    </dependency>
+    <dependency group='org.hibernate' name='hibernate-entitymanager' version='3.4.0.GA' conf='compile' transitive='true' />
+    <dependency group='javassist' name='javassist' version='3.8.0.GA' conf='runtime' transitive='true' />
+    <dependency group='org.hibernate' name='hibernate-core' version='3.3.1.GA' conf='compile' transitive='true'>
+      <excludes group='*' name='ehcache' />
+      <excludes group='*' name='xml-apis' />
+      <excludes group='*' name='commons-logging' />
+    </dependency>
+    <dependency group='org.hibernate' name='hibernate-commons-annotations' version='3.3.0.ga' conf='compile' transitive='true'>
+      <excludes group='*' name='hibernate' />
+    </dependency>
+    <dependency group='org.hibernate' name='hibernate-annotations' version='3.4.0.GA' conf='compile' transitive='true' />
+    <dependency group='antlr' name='antlr' version='2.7.6' conf='runtime' transitive='true' />
+  </dependencies>
+  <behavior>
+    <method name='getConstraints' artefact='Domain' type='org.acme.Address'>
+      <description />
+    </method>
+    <method name='save' artefact='Domain' type='org.acme.Address'>
+      <description />
+    </method>
+    <method name='save' artefact='Domain' type='org.acme.Address'>
+      <description />
+      <argument type='java.util.Map' />
+    </method>
+    <method name='merge' artefact='Domain' type='org.acme.Address'>
+      <description />
+    </method>
+    <method name='merge' artefact='Domain' type='org.acme.Address'>
+      <description />
+      <argument type='java.util.Map' />
+    </method>
+    <method name='delete' artefact='Domain' type='org.acme.Address'>
+      <description />
+    </method>
+    <method name='delete' artefact='Domain' type='org.acme.Address'>
+      <description />
+      <argument type='java.util.Map' />
+    </method>
+    <method name='refresh' artefact='Domain' type='org.acme.Address'>
+      <description />
+    </method>
+    <method name='lock' artefact='Domain' type='org.acme.Address'>
+      <description />
+    </method>
+    <method name='getConstraints' artefact='Domain' type='org.acme.Role'>
+      <description />
+    </method>
+    <method name='save' artefact='Domain' type='org.acme.Role'>
+      <description />
+    </method>
+    <method name='save' artefact='Domain' type='org.acme.Role'>
+      <description />
+      <argument type='java.util.Map' />
+    </method>
+    <method name='merge' artefact='Domain' type='org.acme.Role'>
+      <description />
+    </method>
+    <method name='merge' artefact='Domain' type='org.acme.Role'>
+      <description />
+      <argument type='java.util.Map' />
+    </method>
+    <method name='delete' artefact='Domain' type='org.acme.Role'>
+      <description />
+    </method>
+    <method name='delete' artefact='Domain' type='org.acme.Role'>
+      <description />
+      <argument type='java.util.Map' />
+    </method>
+    <method name='refresh' artefact='Domain' type='org.acme.Role'>
+      <description />
+    </method>
+    <method name='lock' artefact='Domain' type='org.acme.Role'>
+      <description />
+    </method>
+    <method name='getConstraints' artefact='Domain' type='org.acme.Person'>
+      <description />
+    </method>
+    <method name='save' artefact='Domain' type='org.acme.Person'>
+      <description />
+    </method>
+    <method name='save' artefact='Domain' type='org.acme.Person'>
+      <description />
+      <argument type='java.util.Map' />
+    </method>
+    <method name='merge' artefact='Domain' type='org.acme.Person'>
+      <description />
+    </method>
+    <method name='merge' artefact='Domain' type='org.acme.Person'>
+      <description />
+      <argument type='java.util.Map' />
+    </method>
+    <method name='delete' artefact='Domain' type='org.acme.Person'>
+      <description />
+    </method>
+    <method name='delete' artefact='Domain' type='org.acme.Person'>
+      <description />
+      <argument type='java.util.Map' />
+    </method>
+    <method name='refresh' artefact='Domain' type='org.acme.Person'>
+      <description />
+    </method>
+    <method name='lock' artefact='Domain' type='org.acme.Person'>
+      <description />
+    </method>
+    <static-method name='count' artefact='Domain' type='org.acme.Address'>
+      <description />
+    </static-method>
+    <static-method name='getCount' artefact='Domain' type='org.acme.Address'>
+      <description />
+    </static-method>
+    <static-method name='get' artefact='Domain' type='org.acme.Address'>
+      <description />
+      <argument type='java.io.Serializable' />
+    </static-method>
+    <static-method name='exists' artefact='Domain' type='org.acme.Address'>
+      <description />
+      <argument type='java.io.Serializable' />
+    </static-method>
+    <static-method name='executeQuery' artefact='Domain' type='org.acme.Address'>
+      <description />
+      <argument type='java.lang.String' />
+    </static-method>
+    <static-method name='executeQuery' artefact='Domain' type='org.acme.Address'>
+      <description />
+      <argument type='java.lang.String' />
+      <argument type='java.util.List' />
+    </static-method>
+    <static-method name='executeQuery' artefact='Domain' type='org.acme.Address'>
+      <description />
+      <argument type='java.lang.String' />
+      <argument type='java.util.Map' />
+    </static-method>
+    <static-method name='executeUpdate' artefact='Domain' type='org.acme.Address'>
+      <description />
+      <argument type='java.lang.String' />
+    </static-method>
+    <static-method name='executeUpdate' artefact='Domain' type='org.acme.Address'>
+      <description />
+      <argument type='java.lang.String' />
+      <argument type='java.util.List' />
+    </static-method>
+    <static-method name='executeUpdate' artefact='Domain' type='org.acme.Address'>
+      <description />
+      <argument type='java.lang.String' />
+      <argument type='java.util.Map' />
+    </static-method>
+    <static-method name='findWhere' artefact='Domain' type='org.acme.Address'>
+      <description />
+      <argument type='java.util.Map' />
+    </static-method>
+    <static-method name='getAll' artefact='Domain' type='org.acme.Address'>
+      <description />
+      <argument type='java.util.List' />
+    </static-method>
+    <static-method name='list' artefact='Domain' type='org.acme.Address'>
+      <description />
+      <argument type='java.util.Map' />
+    </static-method>
+    <static-method name='lock' artefact='Domain' type='org.acme.Address'>
+      <description />
+      <argument type='java.io.Serializable' />
+    </static-method>
+    <static-method name='withEntityManager' artefact='Domain' type='org.acme.Address'>
+      <description />
+      <argument type='groovy.lang.Closure' />
+    </static-method>
+    <static-method name='withTransaction' artefact='Domain' type='org.acme.Address'>
+      <description />
+      <argument type='groovy.lang.Closure' />
+    </static-method>
+    <static-method name='count' artefact='Domain' type='org.acme.Role'>
+      <description />
+    </static-method>
+    <static-method name='getCount' artefact='Domain' type='org.acme.Role'>
+      <description />
+    </static-method>
+    <static-method name='get' artefact='Domain' type='org.acme.Role'>
+      <description />
+      <argument type='java.io.Serializable' />
+    </static-method>
+    <static-method name='exists' artefact='Domain' type='org.acme.Role'>
+      <description />
+      <argument type='java.io.Serializable' />
+    </static-method>
+    <static-method name='executeQuery' artefact='Domain' type='org.acme.Role'>
+      <description />
+      <argument type='java.lang.String' />
+    </static-method>
+    <static-method name='executeQuery' artefact='Domain' type='org.acme.Role'>
+      <description />
+      <argument type='java.lang.String' />
+      <argument type='java.util.List' />
+    </static-method>
+    <static-method name='executeQuery' artefact='Domain' type='org.acme.Role'>
+      <description />
+      <argument type='java.lang.String' />
+      <argument type='java.util.Map' />
+    </static-method>
+    <static-method name='executeUpdate' artefact='Domain' type='org.acme.Role'>
+      <description />
+      <argument type='java.lang.String' />
+    </static-method>
+    <static-method name='executeUpdate' artefact='Domain' type='org.acme.Role'>
+      <description />
+      <argument type='java.lang.String' />
+      <argument type='java.util.List' />
+    </static-method>
+    <static-method name='executeUpdate' artefact='Domain' type='org.acme.Role'>
+      <description />
+      <argument type='java.lang.String' />
+      <argument type='java.util.Map' />
+    </static-method>
+    <static-method name='findWhere' artefact='Domain' type='org.acme.Role'>
+      <description />
+      <argument type='java.util.Map' />
+    </static-method>
+    <static-method name='getAll' artefact='Domain' type='org.acme.Role'>
+      <description />
+      <argument type='java.util.List' />
+    </static-method>
+    <static-method name='list' artefact='Domain' type='org.acme.Role'>
+      <description />
+      <argument type='java.util.Map' />
+    </static-method>
+    <static-method name='lock' artefact='Domain' type='org.acme.Role'>
+      <description />
+      <argument type='java.io.Serializable' />
+    </static-method>
+    <static-method name='withEntityManager' artefact='Domain' type='org.acme.Role'>
+      <description />
+      <argument type='groovy.lang.Closure' />
+    </static-method>
+    <static-method name='withTransaction' artefact='Domain' type='org.acme.Role'>
+      <description />
+      <argument type='groovy.lang.Closure' />
+    </static-method>
+    <static-method name='count' artefact='Domain' type='org.acme.Person'>
+      <description />
+    </static-method>
+    <static-method name='getCount' artefact='Domain' type='org.acme.Person'>
+      <description />
+    </static-method>
+    <static-method name='get' artefact='Domain' type='org.acme.Person'>
+      <description />
+      <argument type='java.io.Serializable' />
+    </static-method>
+    <static-method name='exists' artefact='Domain' type='org.acme.Person'>
+      <description />
+      <argument type='java.io.Serializable' />
+    </static-method>
+    <static-method name='executeQuery' artefact='Domain' type='org.acme.Person'>
+      <description />
+      <argument type='java.lang.String' />
+    </static-method>
+    <static-method name='executeQuery' artefact='Domain' type='org.acme.Person'>
+      <description />
+      <argument type='java.lang.String' />
+      <argument type='java.util.List' />
+    </static-method>
+    <static-method name='executeQuery' artefact='Domain' type='org.acme.Person'>
+      <description />
+      <argument type='java.lang.String' />
+      <argument type='java.util.Map' />
+    </static-method>
+    <static-method name='executeUpdate' artefact='Domain' type='org.acme.Person'>
+      <description />
+      <argument type='java.lang.String' />
+    </static-method>
+    <static-method name='executeUpdate' artefact='Domain' type='org.acme.Person'>
+      <description />
+      <argument type='java.lang.String' />
+      <argument type='java.util.List' />
+    </static-method>
+    <static-method name='executeUpdate' artefact='Domain' type='org.acme.Person'>
+      <description />
+      <argument type='java.lang.String' />
+      <argument type='java.util.Map' />
+    </static-method>
+    <static-method name='findWhere' artefact='Domain' type='org.acme.Person'>
+      <description />
+      <argument type='java.util.Map' />
+    </static-method>
+    <static-method name='getAll' artefact='Domain' type='org.acme.Person'>
+      <description />
+      <argument type='java.util.List' />
+    </static-method>
+    <static-method name='list' artefact='Domain' type='org.acme.Person'>
+      <description />
+      <argument type='java.util.Map' />
+    </static-method>
+    <static-method name='lock' artefact='Domain' type='org.acme.Person'>
+      <description />
+      <argument type='java.io.Serializable' />
+    </static-method>
+    <static-method name='withEntityManager' artefact='Domain' type='org.acme.Person'>
+      <description />
+      <argument type='groovy.lang.Closure' />
+    </static-method>
+    <static-method name='withTransaction' artefact='Domain' type='org.acme.Person'>
+      <description />
+      <argument type='groovy.lang.Closure' />
+    </static-method>
+    <property name='count' type='org.acme.Address' artefact='Domain'>
+      <description />
+    </property>
+    <property name='constraints' type='org.acme.Address' artefact='Domain'>
+      <description />
+    </property>
+    <property name='count' type='org.acme.Role' artefact='Domain'>
+      <description />
+    </property>
+    <property name='constraints' type='org.acme.Role' artefact='Domain'>
+      <description />
+    </property>
+    <property name='count' type='org.acme.Person' artefact='Domain'>
+      <description />
+    </property>
+    <property name='constraints' type='org.acme.Person' artefact='Domain'>
+      <description />
+    </property>
+  </behavior>
+</plugin>
