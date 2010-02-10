@@ -22,6 +22,7 @@ class SlideshowController extends BaseController {
       def thumbUrl = thumb[0].text()
       def caption = post.'photo-caption'.text()
       caption = caption.replaceAll("&lt;", "<").replaceAll("&gt;", ">")
+      caption = caption.replaceAll("<p>", "").replaceAll("</p>", "")
 
       if (caption.contains("</")) {
         caption = "" // FIXME implement proper HTML stripping / escaping ?
