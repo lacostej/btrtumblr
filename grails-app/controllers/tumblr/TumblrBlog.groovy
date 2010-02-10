@@ -19,14 +19,18 @@ class TumblrBlog {
     this.blog = blog
   }
 
-  // FIXME use properties as arguments
-  def readUrl(start = 0, num = 20, type = null) {
-    def typeArg = type == null ? "" : "&type=${type}"
-    return "http://${this.blog}.tumblr.com/api/read?start=${start}&num=${num}${typeArg}"
+  /**
+   * we don't do any parameter verification.
+   * make sure one reads http://www.tumblr.com/api
+   */
+  def readUrl(Map props = [:]) {
+    def url = new SimpleURIBuilder("http://${this.blog}.tumblr.com/api/read")
+    url.addParams(props)
+    return url.toString()
   }
 
   def slurp(start = 0, num = 20, type = null) {
-    def url = readUrl(start, num, type)
+    def url = readUrl(start: start, num: num, type: type)
     println "URL: $url"
     def maxTries = 3
     def waitBetweenTriesInMillis = 1000
@@ -44,7 +48,7 @@ class TumblrBlog {
 
   def dump_latest() {
     new File("posts_${this.blog}.xml").withOutputStream {
-      os -> new URL(readUrl()).withInputStream { is -> os << is }
+      os -> new URL(readUrl(start: 0, num: 0)).withInputStream { is -> os << is }
     }
   }
 

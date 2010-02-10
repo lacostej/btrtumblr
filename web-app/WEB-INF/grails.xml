@@ -5,6 +5,7 @@
     <resource>tumblr.ArchiveController</resource>
     <resource>tumblr.TumblrBlog</resource>
     <resource>tumblr.BaseController</resource>
+    <resource>tumblr.SimpleURIBuilder</resource>
     <resource>tumblr.ApiReaderService</resource>
     <resource>BootStrap</resource>
     <resource>UrlMappings</resource>

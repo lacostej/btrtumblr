@@ -10,3 +10,7 @@
 ** hardcoded link page of the day
 ** browsing next/previous
 ** calendar
+
+
+
+* no unit tests until this fixed http://jira.codehaus.org/browse/GRAILSPLUGINS-1925
