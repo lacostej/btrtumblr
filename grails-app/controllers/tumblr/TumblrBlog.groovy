@@ -97,10 +97,12 @@ class TumblrBlog {
     def newPosts = []
     while (missing > 0) {
       def fetched = slurped.posts.post.size()
-      newPosts += slurped.posts.post.collect{ new TumblrPost(it) }[0..(fetched-1)]
-      missing -= fetched
-      def toRetain = Math.min(missing, MAX_FETCH)
-      slurped = slurp(newPosts.size(), toRetain, type)
+      if (fetched > 0) {
+        newPosts += slurped.posts.post.collect{ new TumblrPost(it) }[0..(fetched-1)]
+        missing -= fetched
+        def toRetain = Math.min(missing, MAX_FETCH)
+        slurped = slurp(newPosts.size(), toRetain, type)
+      }
     }
     return newPosts
   }
