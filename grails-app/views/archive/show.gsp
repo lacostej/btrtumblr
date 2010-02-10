@@ -40,7 +40,7 @@
                           if (nbPosts > 0) {
                             return """\
                                                                                       <div class="month">
-                                                                                                      <a href="${myDomain}/archive/${year}/${monthIdx + 1}"
+                                                                                                      <a href="${myDomain}/archive/${yearTitle}/${monthIdx + 1}"
                                                               ${active}>${dfs.months[monthIdx]}</a>
                                                                                                               <span class="post_count">
                                                                       ${nbPosts}                                                </span>
