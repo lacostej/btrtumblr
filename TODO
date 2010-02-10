@@ -6,9 +6,7 @@ java] 2010-02-10 22:37:49,903 [btpool0-23] ERROR errors.GrailsExceptionResolver 
      [java] 	at tumblr.TumblrBlog.count(TumblrBlog.groovy:108) )
 
 * lightbox in archive ? (http://www.electricprism.com/aeron/slideshow/example2.html)
-* support other tumblr blogs than just BM
-* fix startup issues
-* large slideshow
+* support other tumblr blogs than just BM (we could load the cache into the cloud, then release it when unused...)
 * slideshow per year ? random slideshow ? latest ? top20 ?
 * properly use GAE infrastructure (entities, memcache, etc...)
 * grails page improvements. Tag libs ? 
