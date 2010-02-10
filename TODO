@@ -14,5 +14,6 @@
 
 
 
+Known Issues
 * no unit tests until this fixed http://jira.codehaus.org/browse/GRAILSPLUGINS-1925
-* startup issues http://jira.codehaus.org/browse/GRAILSPLUGINS-1736
+* GAE/grails startup issues http://jira.codehaus.org/browse/GRAILSPLUGINS-1736
