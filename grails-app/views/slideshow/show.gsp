@@ -14,7 +14,7 @@
               '${it.url}': {caption: '${it.caption} - ${it.hover}', thumbnail: '${it.thumbnail}'},
       </g:each>
             };
-            var myShow = new Slideshow('show', data, {controller: true, height: 300, thumbnails: true, width: ${width}});
+            var myShow = new Slideshow('show', data, {controller: true, height: ${maxHeight}, thumbnails: true, width: ${maxWidth}});
           });
         //]]>
         </script>
