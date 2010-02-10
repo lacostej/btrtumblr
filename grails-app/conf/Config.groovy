@@ -79,6 +79,8 @@ log4j = {
            'net.sf.ehcache.hibernate'
 
     warn   'org.mortbay.log'
+
+//    debug 'org.codehaus.groovy.grails.web.mapping', 'org.codehaus.groovy.grails.web.mapping.filter'
 }
 
 

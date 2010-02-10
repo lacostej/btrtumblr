@@ -1,6 +1,10 @@
 <grails>
   <resources>
     <resource>org.grails.appengine.AppEngineReloadController</resource>
+    <resource>tumblr.TumblrPost</resource>
+    <resource>tumblr.ArchiveController</resource>
+    <resource>tumblr.TumblrBlog</resource>
+    <resource>tumblr.ApiReaderService</resource>
     <resource>BootStrap</resource>
     <resource>UrlMappings</resource>
     <resource>DataSource</resource>
