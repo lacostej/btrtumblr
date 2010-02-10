@@ -1,0 +1,10 @@
+* fix startup issues
+* large slideshow
+* slideshow per year ? random slideshow ?
+* properly use GAE infrastructure (entities, memcache, etc...)
+* grails page improvements. Tag libs ? 
+* nice layout for slideshows
+* new features?
+** hardcoded link page of the day
+** browsing next/previous
+** calendar
