@@ -3,16 +3,19 @@ class UrlMappings {
     "/$blog/slideshow/$year?/$month?" {
       controller = "archive"
       action = "slideshow"
+      constraints {
+        year(matches:/\d{4}/)
+        month(matches:/\d{1,2}/)
+      }
     }
     
     "/$blog/archive/$year?/$month?/$day?" {
       controller = "archive"
       action = "show"
       constraints {
-        // FIXME constraints don't work ??!
-//        year(matches:/d{4}/)
-//         month(matches:/d{2}/)
-//         day(matches:/d{2}/)
+        year(matches:/\d{4}/)
+        month(matches:/\d{1,2}/)
+        day(matches:/\d{1,2}/)
       }
     }
     /* required for reloader to work in development mode */
