@@ -25,7 +25,7 @@
     </head>
     <body>
                     <div id="controls">
-                <h1><a href="${myDomain}/archive/">${header.@title} - ${year}/${month}</a></h1>
+                <h1><a href="${myDomain}/archive/">${header.@title}</a></h1>
 
 <%
   // FIXME recurse based on data between now and first post of the year
