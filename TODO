@@ -1,7 +1,8 @@
+* fix slideshow cropping ?
 * support other tumblr blogs than just BM
 * fix startup issues
 * large slideshow
-* slideshow per year ? random slideshow ? latest ?
+* slideshow per year ? random slideshow ? latest ? top20 ?
 * properly use GAE infrastructure (entities, memcache, etc...)
 * grails page improvements. Tag libs ? 
 * nice layout for slideshows
