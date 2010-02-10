@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="/slideshow/css/slideshow.css" media="screen" />
         <script type="text/javascript" src="/slideshow/js/mootools.js"></script>
         <script type="text/javascript" src="/slideshow/js/slideshow.js"></script>
+        <!--script type="text/javascript" src="/slideshow/js/slideshow.kenburns.js"></script-->
         <script type="text/javascript">
         //<![CDATA[
           window.addEvent('domready', function(){
@@ -14,7 +15,9 @@
               '${it.url}': {caption: '${it.caption} - ${it.hover}', thumbnail: '${it.thumbnail}'},
       </g:each>
             };
-            var myShow = new Slideshow('show', data, {delay: 3000, controller: true, height: ${maxHeight}, thumbnails: true, width: ${maxWidth}, loader: {'animate': ['/slideshow/css/loader-#.png', 12]},});
+            var myShow = new Slideshow('show', data,
+                {delay: 1000, duration: 4000, controller: true, height: ${maxHeight}, width: ${maxWidth}, thumbnails: true, loader: {'animate': ['/slideshow/css/loader-#.png', 12]},
+                  resize: 'length', captions: true, overlap: false});
           });
         //]]>
         </script>
