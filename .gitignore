@@ -1,3 +1,5 @@
 *~
+*.iml
+.idea/
 web-app/WEB-INF/classes/
 target/
