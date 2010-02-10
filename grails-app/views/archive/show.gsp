@@ -73,7 +73,7 @@
                   <div class="year_container" style="position:absolute; right: 0px">
                       <h2>Extras</h2>
 
-                      <div class="month"><a href="${myDomain}/slideshow/">Slideshow</a></div>
+                      <div class="month"><a href="${myDomain}/slideshow/${year}/${month}">Slideshow</a></div>
                   </div>
                 <div class="clear"></div>
             </div>
