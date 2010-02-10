@@ -1,4 +1,10 @@
 = fix slideshow cropping ?
+* fix random invalid data in slurped XML (e.g. 
+java] 2010-02-10 22:37:49,903 [btpool0-23] ERROR errors.GrailsExceptionResolver  - For input string: ""
+     [java] java.lang.NumberFormatException: For input string: ""
+     [...]
+     [java] 	at tumblr.TumblrBlog.count(TumblrBlog.groovy:108) )
+
 * lightbox in archive ? (http://www.electricprism.com/aeron/slideshow/example2.html)
 * support other tumblr blogs than just BM
 * fix startup issues
