@@ -1,34 +1,18 @@
 package tumblr
 
-class SlideshowController {
-
-  def apiReaderService
+class SlideshowController extends BaseController {
 
   def defaultAction = "show"
 
   def show = {
     String blog = params['blog']
 
-    if (!blog.equals("bonjourmadame")) {
-      flash['message'] = "Unsupported blog '${blog}'"
-      render(view:"unsupported_blog")
-    }
+    ensureBlogIsSupported(blog, flash)
 
-    Integer year = toInt(params['year'])
-    Integer month = toInt(params['month'])
-    Integer day = toInt(params['day'])
+    def (year, month, day) = yearMonthDayIntParams(params)
 
     def tumblrBlog = apiReaderService.getTumblrBlog(blog)
     tumblrBlog.update()
-
-    def cal = tumblrBlog.getCalendar()
-
-    if (month == null) {
-      month = cal.get(Calendar.MONTH) + 1
-    }
-    if (year == null) {
-      year = cal.get(Calendar.YEAR)
-    }
 
     def photos = tumblrBlog.postsIn(year, month).collect {
       def post = it.slurp
@@ -38,7 +22,8 @@ class SlideshowController {
       def thumbUrl = thumb[0].text()
       def caption = post.'photo-caption'.text()
       caption = caption.replaceAll("&lt;", "<").replaceAll("&gt;", ">")
-      if (caption.contains("</a")) {
+
+      if (caption.contains("</")) {
         caption = "" // FIXME implement proper HTML stripping / escaping ?
       }
       def hover = String.format("%1\$tb %1\$td", it.datetime) + "th" // FIXME st, nd, rd, th
@@ -46,16 +31,5 @@ class SlideshowController {
     }
     [photos: photos, year: year, month: month, day: day, maxWidth: 1024, maxHeight: 768]
   }
-
-  Integer toInt(String param) {
-    if (param == null)
-      return null
-    try {
-      new Integer(param)
-    } catch (NumberFormatException e) {
-      println "ERROR : " + e.getMessage()
-      return null
-    }
-  }
-
+  
 }

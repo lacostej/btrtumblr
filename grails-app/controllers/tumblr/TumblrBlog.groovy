@@ -64,18 +64,32 @@ class TumblrBlog {
     }
     return calendar
   }
+
   private Calendar createBlogCalendar() {
     return Calendar.getInstance(TimeZone.getTimeZone(getHeader().@timezone.text()))
   }
 
-  def postsIn(year, month) {
+  /* if no specified year is passed, return the current year in the blog's timezone */
+  def getBlogCurrentYear(year) {
     if (year == null) {
-      throw new IllegalArgumentException("null year")
+      year = getCalendar().get(Calendar.YEAR)
     }
+    return year
+  }
+
+  /* if no specified year is passed, return the current month in the blog's timezone */
+  def getBlogCurrentMonth(month) {
     if (month == null) {
-      throw new IllegalArgumentException("null month")
+      month = getCalendar().get(Calendar.MONTH) + 1
     }
-    def cal = createBlogCalendar() 
+    return month
+  }
+
+  def postsIn(year, month) {
+    year = getBlogCurrentYear(year)
+    month = getBlogCurrentMonth(month)
+
+    def cal = createBlogCalendar()
     cal.set(year, month-1, 1, 0, 0, 0)
     def monthStart = cal.getTime()
     cal.set(year, month, 1, 0, 0, 0)

@@ -1,8 +1,6 @@
 package tumblr
 
-class ArchiveController {
-
-  def apiReaderService
+class ArchiveController extends BaseController {
 
   def defaultAction = "show"
 
@@ -10,29 +8,15 @@ class ArchiveController {
 
     def blog = params['blog']
 
-    if (!blog.equals("bonjourmadame")) {
-      flash['message'] = "Unsupported blog '${blog}'"
-      render(view:"unsupported_blog")
-    }
+    ensureBlogIsSupported(blog, flash)
 
-    def year = params['year']
-    def month = params['month']
-    def day = params['day']
+    def (year, month, day) = yearMonthDayIntParams(params)
 
     def tumblrBlog = apiReaderService.getTumblrBlog(blog)
     tumblrBlog.update()
-    def cal = tumblrBlog.getCalendar()
 
-    if (month == null) {
-      month = cal.get(Calendar.MONTH) + 1
-    } else {
-      month = new Integer(month)
-    }
-    if (year == null) {
-      year = cal.get(Calendar.YEAR)
-    } else {
-      year = new Integer(year)
-    }
+    year = tumblrBlog.getBlogCurrentYear(year)
+    month = tumblrBlog.getBlogCurrentMonth(month)
 
     return [tumblr: tumblrBlog, year: year, month: month, day: day]
   }
