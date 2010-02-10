@@ -6,6 +6,7 @@ class UrlMappings {
 		  }
 	  }
       "/"(view:"/index")
+      "/grails_info"(view:"/grails_info")
 	  "500"(view:'/error')
 	}
 }
