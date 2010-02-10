@@ -19,6 +19,12 @@ abstract class BaseController {
     }
   }
 
+  def getTumblrBlog(blog) {
+    def tumblrBlog = apiReaderService.getTumblrBlog(blog)
+    tumblrBlog.update()
+    return tumblrBlog
+  }
+
   def yearMonthDayIntParams(params) {
     Integer year = toInt(params['year'])
     Integer month = toInt(params['month'])
