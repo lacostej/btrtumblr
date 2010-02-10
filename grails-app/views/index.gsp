@@ -71,7 +71,13 @@
 		</div>
 		<div id="pageBody">
 	        <h1>Welcome to Better Tumblr</h1>
-	        <p>A small project to explore Tumblr APIs...</p>
+	        <p>A small project to explore Tumblr APIs and add features to the limited tumblr service...</p>
+
+      <h2>News features</h2>
+      <ul>
+        <li>Slideshows implemented using <a href="http://www.electricprism.com/aeron/slideshow/">the slideshow javascript library</a></li>
+        <!-- fixed URLs for -->
+      </ul>
 		</div>
     </body>
 </html>

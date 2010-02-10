@@ -1,5 +1,10 @@
 class UrlMappings {
   static mappings = {
+    "/$blog/slideshow/$year?/$month?" {
+      controller = "slideshow"
+      action = "show"
+    }
+    
     "/$blog/archive/$year?/$month?/$day?" {
       controller = "archive"
       action = "show"
