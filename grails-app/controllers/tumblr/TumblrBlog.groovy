@@ -36,7 +36,10 @@ class TumblrBlog {
     def waitBetweenTriesInMillis = 1000
     while (maxTries-- > 0) {
       try {
-        return slurper.parse(url)
+        def slurped = slurper.parse(url)
+        // quick quality check. It seems that sometimes we get garbage and the slurper doesn't notify us. Check the API
+        new Integer(slurped.posts.@total.text())
+        return slurped
       } catch (Exception e) {
         println "FAILED, trying again... " + e
 //        e.printStackTrace()
