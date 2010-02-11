@@ -1,3 +1,9 @@
+A small grails/google app engine application that adds features to tumblr.com blogs
+
+New features:
+* slideshows 
+
+
 Galleries/slideshows:
 * http://smoothgallery.jondesign.net/showcase/gallery/
 * http://www.fotoplayer.com/demo.html
