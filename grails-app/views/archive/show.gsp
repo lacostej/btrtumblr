@@ -2,7 +2,7 @@
   def slurper = new XmlSlurper()
   def dfs = new java.text.DateFormatSymbols()
   def header = tumblr.getHeader()
-  def domain = "http://${header.@cname}"
+  def domain = "http://${header.@name}.tumblr.com"
   def myDomain = "/${header.@name}"
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"

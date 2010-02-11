@@ -1,4 +1,5 @@
 * sort posts by date in archive&snapshots
+* find a way to visually indicate that we're not finished syncing...
 * restrict amount fo viewed items in archive ?
 * Fix dates in archive/snapshots postsIn is buggy ? Probably that we don't use the proper timezone when displaying the caption
 * lightbox in archive ? (http://www.electricprism.com/aeron/slideshow/example2.html)
@@ -26,5 +27,6 @@ java] 2010-02-10 22:37:49,903 [btpool0-23] ERROR errors.GrailsExceptionResolver 
      [java] java.lang.NumberFormatException: For input string: ""
      [...]
      [java] 	at tumblr.TumblrBlog.count(TumblrBlog.groovy:108) )
+= Fix visuals of landscapelifescape
 
 
