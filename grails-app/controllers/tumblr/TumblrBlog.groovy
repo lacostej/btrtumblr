@@ -127,7 +127,6 @@ class TumblrBlog {
     while (true) {
       def missing = total - alreadyFetchedCount
       def nbToFetch = amountToFetch < 0 ? missing : Math.min(missing, amountToFetch)
-      println "${nbToFetch}"
       nbToFetch = Math.min(nbToFetch, MAX_FETCH)
       if (nbToFetch <= 0) {
         break
@@ -144,7 +143,6 @@ class TumblrBlog {
       if (nbFetched > 0) {
         newPosts += slurped.posts.post.collect{ new TumblrPost(it) }[0..(nbFetched-1)]
         alreadyFetchedCount += nbFetched
-        nbToFetch -= nbFetched
         if (amountToFetch <= newPosts.size()) {
           break
         }
