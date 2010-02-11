@@ -2,6 +2,7 @@
 * FIX slideshow first image shown twice
 * FIX speed up archive page
 * FIX captions
+* FIX archive: support browsing blogs older than 2009
 * ENH support other types of posts in archive (e.g. videos)
 * ENH find a way to visually indicate that we're not finished syncing...
 * FIX dates in archive/snapshots postsIn is buggy ? Probably that we don't use the proper timezone when displaying the caption
