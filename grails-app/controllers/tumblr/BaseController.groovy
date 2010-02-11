@@ -9,7 +9,10 @@ abstract class BaseController {
   def apiReaderService
 
   // this will disappear in the long run. Just hard code it for now
-  def supportedBlogs = ["bonjourmadame", "landscapelifescape"]
+  def supportedBlogs = [
+      [name: "bonjourmadame", comment: "<a href='http://en.wikipedia.org/wiki/Not_safe_for_work'>NSFW</a>"],
+      [name: "landscapelifescape", comment: "nice pictures"]
+  ]
 
   Integer toInt(String param) {
     if (param == null)
@@ -35,8 +38,12 @@ abstract class BaseController {
     return [year, month, day]
   }
 
+  def supportedBlogsNames() {
+    supportedBlogs.collect{it.name}
+  }
+
   protected def ensureBlogIsSupported(String blog, Map flash) {
-    if (!blog in supportedBlogs){
+    if (!blog in supportedBlogsNames()){
       flash['message'] = "Unsupported blog '${blog}'"
       render(view: "unsupported_blog")
     }

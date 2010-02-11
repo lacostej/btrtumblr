@@ -83,7 +83,7 @@
       While we're testing the infrastructure, we currently limit the support to a small number of blogs:
       <ul>
       <g:each var="blog" in="${supportedBlogs}">
-        <li><a href="/${blog}/archive/">${blog}</a></li>
+        <li><a href="/${blog.name}/archive/">${blog.name}</a> (${blog.comment})</li>
       </g:each>
       </ul>
       If you wish one particular blog to be added, <a href="mailto:contact.btrtumblr@gmail.com">contact us</a> or send us a patch ;).
