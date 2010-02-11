@@ -10,7 +10,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
     	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	    <title>${header.@title}</title>
+	    <title>${header.@title}: Archive</title>
     	<link rel="stylesheet" type="text/css" href="${domain}/stylesheets/archive.css?4"/>
     	<script> </script>
     	<style type="text/css">
