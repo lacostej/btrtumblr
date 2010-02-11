@@ -8,12 +8,14 @@ package tumblr
 class TumblrPost {
   def cal = new GregorianCalendar()
   def id
+  def type
   def datetime
   def slurp
   def xml
 
   TumblrPost(gpathResult) {
     this.id = gpathResult.@id.text()
+    this.type = gpathResult.@type.text()
     this.datetime = toDate(gpathResult.'@unix-timestamp'.text())
     this.slurp = gpathResult
 
