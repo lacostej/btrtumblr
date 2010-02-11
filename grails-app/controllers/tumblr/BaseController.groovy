@@ -24,7 +24,7 @@ abstract class BaseController {
 
   def getTumblrBlog(blog) {
     def tumblrBlog = apiReaderService.getTumblrBlog(blog)
-    tumblrBlog.update()
+    tumblrBlog.update(500)
     return tumblrBlog
   }
 
