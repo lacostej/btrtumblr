@@ -1,17 +1,19 @@
-* sort posts by date in archive&snapshots
-* find a way to visually indicate that we're not finished syncing...
-* restrict amount fo viewed items in archive ?
-* Fix dates in archive/snapshots postsIn is buggy ? Probably that we don't use the proper timezone when displaying the caption
-* lightbox in archive ? (http://www.electricprism.com/aeron/slideshow/example2.html)
-* support other tumblr blogs than just BM (we could load the cache into the cloud, then release it when unused...)
-* slideshow per year ? random slideshow ? latest ? top20 ?
-* properly use GAE infrastructure (entities, memcache, etc...)
-* grails page improvements. Tag libs ? 
-* nice layout for slideshows
+* FIX sort posts by date in archive&snapshots
+* FIX slideshow first image shown twice
+* FIX speed up archive page
+* ENH support other types of posts in archive (e.g. videos)
+* ENH find a way to visually indicate that we're not finished syncing...
+* FIX dates in archive/snapshots postsIn is buggy ? Probably that we don't use the proper timezone when displaying the caption
+* ENH slideshow per year ? random slideshow ? latest ? top20 ?
+* INF properly use GAE infrastructure (entities, memcache, etc...)
+* INF grails page improvements. Tag libs ? 
+* ENH nice layout for slideshows
 * new features?
 ** hardcoded link page of the day
 ** browsing next/previous
 ** calendar
+** lightbox in archive ? (http://www.electricprism.com/aeron/slideshow/example2.html)
+** support other tumblr blogs than just BM (we could load the cache into the cloud, then release it when unused...)
 
 
 
