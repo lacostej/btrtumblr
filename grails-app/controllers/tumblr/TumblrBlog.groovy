@@ -111,29 +111,58 @@ class TumblrBlog {
     return new Integer(tumblr.posts.@total.text())
   }
 
-  def getNew(alreadyFetchedCount, type = null) {
-    def slurped = slurp(0, MAX_FETCH, type)
-    int total = new Integer(slurped.posts.@total.text())
-    def missing = total - alreadyFetchedCount
+  /**
+   * @param amountToFetch has no effect if < 0
+   */
+  def getFromOldest(amountToFetch = -1) {
     def newPosts = []
-    while (missing > 0) {
-      def fetched = slurped.posts.post.size()
-      if (fetched > 0) {
-        newPosts += slurped.posts.post.collect{ new TumblrPost(it) }[0..(fetched-1)]
-        missing -= fetched
+
+    def alreadyFetchedCount = posts.size()
+    def total = count()
+    while (true) {
+      def missing = total - alreadyFetchedCount
+      def nbToFetch = amountToFetch < 0 ? missing : Math.min(missing, amountToFetch)
+      println "${nbToFetch}"
+      nbToFetch = Math.min(nbToFetch, MAX_FETCH)
+      if (nbToFetch <= 0) {
+        break
       }
-      def toRetain = Math.min(missing, MAX_FETCH)
-      slurped = slurp(newPosts.size(), toRetain, type)
+      def slurped = slurp(total - (alreadyFetchedCount + nbToFetch), nbToFetch)
+      int newTotal = new Integer(slurped.posts.@total.text())
+      if (newTotal != total) {
+        // if a new post has been added to tumblr in the mean time, we just redo the operation
+        total = newTotal
+        continue
+      }
+
+      def nbFetched = slurped.posts.post.size()
+      if (nbFetched > 0) {
+        newPosts += slurped.posts.post.collect{ new TumblrPost(it) }[0..(nbFetched-1)]
+        alreadyFetchedCount += nbFetched
+        nbToFetch -= nbFetched
+        if (amountToFetch <= newPosts.size()) {
+          break
+        }
+      }
     }
     return newPosts
   }
 
-  def update() {
+  /**
+   * Updates the internal representation of the posts
+   * @param maxToFetch maximum number of posts to fetch in this update. Limited by actual number of posts to fetch. 
+   * @return true if all fetched
+   */
+  def update(maxToFetch = -1) {
     def count = count()
     def missing = count - posts.size()
-    if (missing > 0) {
-      println "Fetching missing ${missing} blog entries..."
-      posts += getNew(posts.size())
+    // fetch all except if we restrict
+    def toFetch = maxToFetch > 0 ? Math.min(maxToFetch, missing) : missing
+    if (toFetch > 0) {
+      println "Fetching missing ${toFetch} out of ${missing} blog entries..."
+      posts += getFromOldest(toFetch)
+
     }
+    return count == posts.size()
   }
 }
