@@ -86,7 +86,7 @@
         <li><a href="/${blog}/archive/">${blog}</a></li>
       </g:each>
       </ul>
-      If you wish one particular blog to be added, contact us.
+      If you wish one particular blog to be added, <a href="mailto:contact.btrtumblr@gmail.com">contact us</a> or send us a patch ;).
 
 		</div>
     </body>
