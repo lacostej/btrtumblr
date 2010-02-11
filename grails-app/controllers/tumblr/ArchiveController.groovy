@@ -32,7 +32,7 @@ class ArchiveController extends BaseController {
 
     def tumblrBlog = getTumblrBlog(blog)
 
-    def photos = tumblrBlog.postsIn(year, month).collect {
+    def photos = tumblrBlog.postsIn(year, month, "photo").collect {
       def post = it.slurp
       def pic = post.'photo-url'.findAll{ it2 -> it2.'@max-width'.text() == "1280" }
       def picUrl = pic[0].text()

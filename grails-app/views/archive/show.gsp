@@ -35,6 +35,7 @@
                           <h2>${yearTitle}</h2>
                       <%
                         def monthsHtml = (0..11).collect { monthIdx ->
+                          // note that we count all types of posts here. FIXME Should we also restrict to pictures ? Double check tumblr's implementation
                           def nbPosts = tumblr.postsIn(yearTitle, monthIdx + 1).size()
                           def active = (yearTitle == year && month == (monthIdx + 1)) ? "class=\"active\"" : ""
                           if (nbPosts > 0) {
@@ -80,7 +81,7 @@
 
             <div id="post_bricks">
 <%
-   tumblr.postsIn(year, month).each {
+   tumblr.postsIn(year, month, "photo").each {
      def post = it.slurp
      def thumb = post.'photo-url'.findAll{ it2 -> it2.'@max-width'.text() == "250" }
      def thumbUrl = thumb[0].text()

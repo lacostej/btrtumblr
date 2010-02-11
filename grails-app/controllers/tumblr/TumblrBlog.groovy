@@ -92,17 +92,22 @@ class TumblrBlog {
     return month
   }
 
-  def postsIn(year, month) {
+  def postsIn(year, month, type = null) {
     year = getBlogCurrentYear(year)
     month = getBlogCurrentMonth(month)
 
+    // issue ??? http://localhost:8080/landscapelifescape/archive/2009/7
     def cal = createBlogCalendar()
     cal.set(year, month-1, 1, 0, 0, 0)
     def monthStart = cal.getTime()
     cal.set(year, month, 1, 0, 0, 0)
     def monthEnd = cal.getTime()
     def collected = []
-    posts.each { if (it.datetime >= monthStart  && it.datetime <= monthEnd) { collected << it } }
+    posts.each {
+      if (it.datetime >= monthStart  && it.datetime <= monthEnd && (type == null ? true : it.type == type)) {
+        collected << it
+      }
+    }
     return collected
   }
 
