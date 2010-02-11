@@ -8,6 +8,9 @@ package tumblr
 abstract class BaseController {
   def apiReaderService
 
+  // this will disappear in the long run. Just hard code it for now
+  def supportedBlogs = ["bonjourmadame", "landscapelifescape"]
+
   Integer toInt(String param) {
     if (param == null)
       return null
@@ -33,7 +36,7 @@ abstract class BaseController {
   }
 
   protected def ensureBlogIsSupported(String blog, Map flash) {
-    if(!blog.equals("bonjourmadame")){
+    if (!blog in supportedBlogs){
       flash['message'] = "Unsupported blog '${blog}'"
       render(view: "unsupported_blog")
     }

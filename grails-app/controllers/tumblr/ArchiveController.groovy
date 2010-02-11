@@ -4,6 +4,10 @@ class ArchiveController extends BaseController {
 
   def defaultAction = "show"
 
+  def index = {
+    return [supportedBlogs: supportedBlogs]
+  }
+
   def show = {
     def blog = params['blog']
 

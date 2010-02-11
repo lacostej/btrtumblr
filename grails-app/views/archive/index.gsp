@@ -75,9 +75,19 @@
 
       <h2>News features</h2>
       <ul>
-        <li>Slideshows implemented using <a href="http://www.electricprism.com/aeron/slideshow/">the slideshow javascript library</a></li>
+        <li>Slideshows implemented using this <a href="http://www.electricprism.com/aeron/slideshow/">slideshow javascript library</a></li>
         <!-- fixed URLs for -->
       </ul>
+
+      <h2>Supported Blogs</h2>
+      While we're testing the infrastructure, we currently limit the support to a small number of blogs:
+      <ul>
+      <g:each var="blog" in="${supportedBlogs}">
+        <li><a href="/${blog}/archive/">${blog}</a></li>
+      </g:each>
+      </ul>
+      If you wish one particular blog to be added, contact us.
+
 		</div>
     </body>
 </html>

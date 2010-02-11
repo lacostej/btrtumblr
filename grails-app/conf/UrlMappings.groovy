@@ -25,7 +25,10 @@ class UrlMappings {
        }
     }
 
-    "/"(view:"/index")
+    "/" {
+      controller = "archive"
+      action = "index"
+    }
     "/grails_info"(view:"/grails_info")
 
 	  "500"(view:'/error')
