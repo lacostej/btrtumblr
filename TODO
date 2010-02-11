@@ -1,6 +1,7 @@
 * FIX sort posts by date in archive&snapshots
 * FIX slideshow first image shown twice
 * FIX speed up archive page
+* FIX captions
 * ENH support other types of posts in archive (e.g. videos)
 * ENH find a way to visually indicate that we're not finished syncing...
 * FIX dates in archive/snapshots postsIn is buggy ? Probably that we don't use the proper timezone when displaying the caption
