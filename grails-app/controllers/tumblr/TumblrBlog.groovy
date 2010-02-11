@@ -164,7 +164,6 @@ class TumblrBlog {
     if (toFetch > 0) {
       println "Fetching missing ${toFetch} out of ${missing} blog entries..."
       posts += getFromOldest(toFetch)
-
     }
     return count == posts.size()
   }
